@@ -4,7 +4,7 @@
  * Plugin Name: Woo Order Print
  * Plugin URI: https://github.com/ivansuknovic/woo-order-print
  * Description: WooCommerce plugin that allows you to print WooCommerce orders.
- * Version: 1.1
+ * Version: 1.2
  *
  * Author: Ivan Suknovic
  * Author URI: https://github.com/ivansuknovic
@@ -13,6 +13,9 @@
  * Developer URI: https://github.com/ivansuknovic
  *
  * Requires PHP: 7.2
+ *
+ * Requires at least: 5.7
+ * Tested up to: 6.2
  *
  * WC requires at least: 7.0
  * WC tested up to: 7.6.1

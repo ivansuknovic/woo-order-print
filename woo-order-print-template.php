@@ -3,6 +3,11 @@
 Template Name: Woo Order Print Template
 */
 
+if (!current_user_can( 'edit_others_shop_orders' )) {
+	echo "<p>Nothing to see here.</p>";
+	
+	return;
+}
 
 $order_id = get_query_var('woo_order_print_id', null);
 
