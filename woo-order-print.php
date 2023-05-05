@@ -1,14 +1,25 @@
 <?php
 
-/*
-Plugin Name: Woo Order Print
-Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: A brief description of the Plugin.
-Version: 1.1
-Author: Ivan Suknovic
-Author URI: http://URI_Of_The_Plugin_Author
-License: A "Slug" license name e.g. GPL2
-*/
+/**
+ * Plugin Name: Woo Order Print
+ * Plugin URI: https://github.com/ivansuknovic/woo-order-print
+ * Description: WooCommerce plugin that allows you to print WooCommerce orders.
+ * Version: 1.1
+ *
+ * Author: Ivan Suknovic
+ * Author URI: https://github.com/ivansuknovic
+ *
+ * Developer: Ivan Suknovic
+ * Developer URI: https://github.com/ivansuknovic
+ *
+ * Requires PHP: 7.2
+ *
+ * WC requires at least: 7.0
+ * WC tested up to: 7.6.1
+ *
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html≈
+ */
 
 if ( ! defined('WPINC')) {
 	die;
@@ -53,7 +64,7 @@ function wop_order_print_action_column($columns): array
 	foreach ($columns as $key => $column) {
 		$reordered_columns[$key] = $column;
 		if ($key == 'order_total') {
-			$reordered_columns['woo-order-print'] = __('Print action', 'woo_order_print');
+			$reordered_columns['woo-order-print'] = __('Print action', 'woo-order-print');
 		}
 	}
 	
@@ -65,7 +76,11 @@ add_filter('manage_edit-shop_order_columns', 'wop_order_print_action_column', 20
 function wop_order_print_action_field($column, $post_id): void
 {
 	if ($column == 'woo-order-print') {
-		echo "<a href='/woo-order-print?woo_order_print_id=$post_id' target='_blank'>Print</a>";
+		echo sprintf(
+			'<a href="/woo-order-print?woo_order_print_id=%s" target="_blank">%s</a>',
+			$post_id,
+			__('Print', 'woo-order-print')
+		);
 	}
 }
 

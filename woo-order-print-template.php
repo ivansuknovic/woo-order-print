@@ -3,17 +3,6 @@
 Template Name: Woo Order Print Template
 */
 
-?>
-	<html>
-	<head>
-		<style>
-        body {
-            font-family: Verdana, sans-serif;
-        }
-		</style>
-	</head>
-	<body>
-<?php
 
 $order_id = get_query_var('woo_order_print_id', null);
 
@@ -22,6 +11,24 @@ if ($order_id === null) {
 	
 	return;
 }
+
+?>
+	<html lang="en">
+	<head>
+		<style>
+        body {
+            font-family: Verdana, sans-serif;
+        }
+		</style>
+		<title>
+			<?php
+			echo "wc-order-$order_id";
+			?>
+		</title>
+	</head>
+	<body>
+<?php
+
 
 $order = wc_get_order($order_id);
 
